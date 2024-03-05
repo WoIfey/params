@@ -4,7 +4,7 @@ import { useState } from 'react'
 
 export default function Limit() {
 	const params = useSearchParams()
-	const [limit, setLimit] = useState(params.get('limit') || '0')
+	const [limit, setLimit] = useState(params.get('limit') || '1')
 
 	const handleLimitChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const newLimit = e.target.value
@@ -24,7 +24,7 @@ export default function Limit() {
 					type="number"
 					id="limit"
 					name="limit"
-					placeholder="0"
+					placeholder="1"
 					min={0}
 					max={10000}
 					value={limit}

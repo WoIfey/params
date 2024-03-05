@@ -1,16 +1,11 @@
 'use client'
 import { useSearchParams } from 'next/navigation'
 
-export default function Quotes({
-	data,
-	limit,
-}: {
-	data: any[]
-	limit: number
-}) {
+export default function Quotes({ data }: { data: any[] }) {
 	const searchParams = useSearchParams()
 	const search = searchParams.get('limit')
-	const limitValue = search ? parseInt(search) : limit
+
+	const limitValue = search ? parseInt(search) : 1
 	const limitData = data.slice(0, limitValue)
 
 	return (
