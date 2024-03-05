@@ -2,7 +2,11 @@ import Limit from '@/components/limit'
 import Quotes from '@/components/quotes'
 import { getData } from '@/utils/handleDatabase'
 
-export default async function Home() {
+export default async function Home({
+	searchParams,
+}: {
+	searchParams: { limit: number }
+}) {
 	let data = await getData()
 	data.sort((a, b) => a.id - b.id)
 	return (
@@ -19,7 +23,7 @@ export default async function Home() {
 					</div>
 				</div>
 				<div className="pt-40 sm:pt-28">
-					<Quotes data={data} />
+					<Quotes data={data} limit={searchParams.limit} />
 				</div>
 			</div>
 		</div>
